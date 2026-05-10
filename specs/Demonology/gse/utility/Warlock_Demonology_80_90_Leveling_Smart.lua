@@ -45,23 +45,23 @@ Sequences["Warlock_Demonology_80_90_Leveling_Smart"] = {
                 local petHealth = hasPet and (UnitHealth("pet") / UnitHealthMax("pet")) or 0
                 local empowerment = C_UnitAuras.GetPlayerAuraBySpellID(267171)
                 
-                -- Cooldown checks
+                -- Cooldown checks with proper nil handling
                 local tyrantCDInfo = C_Spell.GetSpellCooldown(265187)
-                local tyrantCD = tyrantCDInfo and tyrantCDInfo.duration or 0
+                local tyrantCD = tyrantCDInfo and tyrantCDInfo.startTime == 0
                 local grimoireCDInfo = C_Spell.GetSpellCooldown(111898)
-                local grimoireCD = grimoireCDInfo and grimoireCDInfo.duration or 0
+                local grimoireCD = grimoireCDInfo and grimoireCDInfo.startTime == 0
                 local dreadstalkersCDInfo = C_Spell.GetSpellCooldown(104316)
-                local dreadstalkersCD = dreadstalkersCDInfo and dreadstalkersCDInfo.duration or 0
+                local dreadstalkersCD = dreadstalkersCDInfo and dreadstalkersCDInfo.startTime == 0
                 local handsCDInfo = C_Spell.GetSpellCooldown(105174)
-                local handsCD = handsCDInfo and handsCDInfo.duration or 0
+                local handsCD = handsCDInfo and handsCDInfo.startTime == 0
                 
                 -- Level-based ability checks
                 local playerLevel = UnitLevel("player")
                 
                 -- Smart decision logic
-                local shouldTyrant = tyrantCD == 0 and shards >= 3 and combat
-                local shouldHands = handsCD == 0 and shards >= 3
-                local shouldDreadstalkers = dreadstalkersCD == 0 and shards >= 2
+                local shouldTyrant = tyrantCD and shards >= 3 and combat
+                local shouldHands = handsCD and shards >= 3
+                local shouldDreadstalkers = dreadstalkersCD and shards >= 2
                 local shouldEmpower = hasPet and empowerment == nil
                 
                 GSEStore['SHARDS'] = shards
@@ -70,10 +70,10 @@ Sequences["Warlock_Demonology_80_90_Leveling_Smart"] = {
                 GSEStore['HAS_PET'] = hasPet
                 GSEStore['PET_HEALTH'] = petHealth
                 GSEStore['EMPOWERMENT'] = empowerment and empowerment.applications or 0
-                GSEStore['TYRANT_READY'] = tyrantCD == 0
-                GSEStore['GRIMOIRE_READY'] = grimoireCD == 0
-                GSEStore['HANDS_READY'] = handsCD == 0
-                GSEStore['DREADSTALKERS_READY'] = dreadstalkersCD == 0
+                GSEStore['TYRANT_READY'] = tyrantCD
+                GSEStore['GRIMOIRE_READY'] = grimoireCD
+                GSEStore['HANDS_READY'] = handsCD
+                GSEStore['DREADSTALKERS_READY'] = dreadstalkersCD
                 GSEStore['IN_COMBAT'] = combat
                 GSEStore['PLAYER_LEVEL'] = playerLevel
                 GSEStore['SHOULD_TYRANT'] = shouldTyrant
@@ -85,7 +85,7 @@ Sequences["Warlock_Demonology_80_90_Leveling_Smart"] = {
             "/cast [@target,harm,nodead] Doom",
             "/cast [@target,harm,nodead] Hand of Gul'dan",
             "/cast [combat] Nether Portal",
-            "/cast [combat] Grimoire: Fel Reaver",
+            "/cast [combat] Grimoire: Felguard",
             "/cast [combat] Summon Demonic Tyrant",
             "/cast [@target,harm,nodead] Call Dreadstalkers",
             "/cast [@target,harm,nodead] Hand of Gul'dan",
@@ -121,11 +121,11 @@ Sequences["Warlock_Demonology_80_90_ST"] = {
             PreMacro = [[
                 local shards = UnitPower("player", Enum.PowerType.SoulShards)
                 local tyrantCDInfo = C_Spell.GetSpellCooldown(265187)
-                local tyrantCD = tyrantCDInfo and tyrantCDInfo.duration or 0
+                local tyrantCD = tyrantCDInfo and tyrantCDInfo.startTime == 0
                 local empowerment = C_UnitAuras.GetPlayerAuraBySpellID(267171)
                 
                 GSEStore['SHARDS'] = shards
-                GSEStore['TYRANT_READY'] = tyrantCD == 0
+                GSEStore['TYRANT_READY'] = tyrantCD
                 GSEStore['EMPOWERMENT'] = empowerment and empowerment.applications or 0
                 GSEStore['SHARDS_FOR_HANDS'] = shards >= 3
             ]],
@@ -133,7 +133,6 @@ Sequences["Warlock_Demonology_80_90_ST"] = {
             "/cast [nochanneling] Grimoire: Felguard",
             "/cast [nochanneling] Call Dreadstalkers",
             "/cast [nochanneling] Hand of Gul'dan",
-            "/cast [nochanneling] Demonic Empowerment",
             "/cast [nochanneling] Demonbolt",
             "/cast [nochanneling] Soul Strike",
             "/cast [nochanneling] Power Siphon",
@@ -164,7 +163,7 @@ Sequences["Warlock_Demonology_80_90_AoE"] = {
             },
             PreMacro = [[
                 local shards = UnitPower("player", Enum.PowerType.SoulShards)
-                local enemies = GetNumEnemies("player", 10) or 1
+                local enemies = 1 -- Placeholder for enemy count
                 
                 GSEStore['SHARDS'] = shards
                 GSEStore['ENEMY_COUNT'] = enemies

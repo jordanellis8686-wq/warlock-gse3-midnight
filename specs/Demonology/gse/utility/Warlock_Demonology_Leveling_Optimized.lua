@@ -34,27 +34,26 @@ Sequences["Warlock_Demonology_Leveling_Optimized"] = {
             PreMacro = [[
                 -- Resource and cooldown tracking
                 local shards = UnitPower("player", Enum.PowerType.SoulShards)
-                local fury = UnitPower("player", Enum.PowerType.DemonicFury or 17)
                 local heroSpec = GSEStore['DEMO_HERO_SPEC'] or 0
                 local combat = UnitAffectingCombat("player")
                 
-                -- Pet and demonic empowerment tracking
+                -- Pet tracking
                 local hasPet = UnitExists("pet")
-                local empowerment = C_UnitAuras.GetPlayerAuraBySpellID(267171) -- Demonic Empowerment
                 
-                -- Cooldown checks
-                local tyrantCD = C_Spell.GetSpellCooldown(265187)
-                local grimoireCD = C_Spell.GetSpellCooldown(111898)
-                local handsCD = C_Spell.GetSpellCooldown(105174)
+                -- Cooldown checks with proper nil handling
+                local tyrantCDInfo = C_Spell.GetSpellCooldown(265187)
+                local tyrantCD = tyrantCDInfo and tyrantCDInfo.startTime == 0
+                local grimoireCDInfo = C_Spell.GetSpellCooldown(111898)
+                local grimoireCD = grimoireCDInfo and grimoireCDInfo.startTime == 0
+                local handsCDInfo = C_Spell.GetSpellCooldown(105174)
+                local handsCD = handsCDInfo and handsCDInfo.startTime == 0
                 
                 GSEStore['SHARDS'] = shards
-                GSEStore['FURY'] = fury  
                 GSEStore['HERO_SPEC'] = heroSpec
                 GSEStore['HAS_PET'] = hasPet
-                GSEStore['EMPOWERMENT'] = empowerment and empowerment.applications or 0
-                GSEStore['TYRANT_READY'] = tyrantCD == 0
-                GSEStore['GRIMOIRE_READY'] = grimoireCD == 0
-                GSEStore['HANDS_READY'] = handsCD == 0
+                GSEStore['TYRANT_READY'] = tyrantCD
+                GSEStore['GRIMOIRE_READY'] = grimoireCD
+                GSEStore['HANDS_READY'] = handsCD
                 GSEStore['IN_COMBAT'] = combat
             ]],
             "/cast [nochanneling] Call Dreadstalkers",
@@ -91,11 +90,9 @@ Sequences["Warlock_Demonology_SoulHarvester_ST"] = {
             },
             PreMacro = [[
                 local shards = UnitPower("player", Enum.PowerType.SoulShards)
-                local fury = UnitPower("player", Enum.PowerType.DemonicFury or 17)
                 local portal = C_UnitAuras.GetPlayerAuraBySpellID(267218) -- Nether Portal
                 
                 GSEStore['SHARDS'] = shards
-                GSEStore['FURY'] = fury
                 GSEStore['PORTAL_ACTIVE'] = portal ~= nil
                 GSEStore['SHARDS_FOR_HANDS'] = shards >= 3
             ]],
@@ -133,12 +130,10 @@ Sequences["Warlock_Demonology_Diabolist_ST"] = {
             },
             PreMacro = [[
                 local shards = UnitPower("player", Enum.PowerType.SoulShards)
-                local fury = UnitPower("player", Enum.PowerType.DemonicFury or 17)
-                local guillotineCD = C_Spell.GetSpellCooldown(386933) -- Verify spellID
+                local guillotineCDInfo = C_Spell.GetSpellCooldown(386932) -- Guillotine (Diabolist)
                 
                 GSEStore['SHARDS'] = shards
-                GSEStore['FURY'] = fury
-                GSEStore['GUILLOTINE_READY'] = guillotineCD == 0
+                GSEStore['GUILLOTINE_READY'] = guillotineCDInfo and guillotineCDInfo.startTime == 0
                 GSEStore['SHARDS_FOR_HANDS'] = shards >= 3
             ]],
             "/cast [nochanneling] Call Dreadstalkers",
@@ -174,11 +169,9 @@ Sequences["Warlock_Demonology_AoE_Optimized"] = {
             },
             PreMacro = [[
                 local shards = UnitPower("player", Enum.PowerType.SoulShards)
-                local fury = UnitPower("player", Enum.PowerType.DemonicFury or 17)
-                local enemies = GetNumEnemies("player", 10) or 1
+                local enemies = 1 -- Placeholder for enemy count
                 
                 GSEStore['SHARDS'] = shards
-                GSEStore['FURY'] = fury  
                 GSEStore['ENEMY_COUNT'] = enemies
                 GSEStore['AOE_MODE'] = enemies >= 3
             ]],

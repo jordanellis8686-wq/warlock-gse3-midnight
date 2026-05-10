@@ -82,11 +82,11 @@ Sequences["Warlock_Affliction_SoulHarvester_ST"] = {
             },
             PreMacro = [[
                 local shards = UnitPower("player", Enum.PowerType.SoulShards)
-                local darkglareCD = C_Spell.GetSpellCooldown(205180)
-                local darkHarvestCD = C_Spell.GetSpellCooldown(386933)
+                local darkglareCDInfo = C_Spell.GetSpellCooldown(205180)
+                local darkHarvestCDInfo = C_Spell.GetSpellCooldown(386933)
                 
-                GSEStore['DARKGLARE_READY'] = darkglareCD == 0
-                GSEStore['DARKHARVEST_READY'] = darkHarvestCD == 0
+                GSEStore['DARKGLARE_READY'] = darkglareCDInfo and darkglareCDInfo.startTime == 0
+                GSEStore['DARKHARVEST_READY'] = darkHarvestCDInfo and darkHarvestCDInfo.startTime == 0
                 GSEStore['SHARDS'] = shards
             ]],
             "/cast [nochanneling] Agony",
@@ -120,10 +120,10 @@ Sequences["Warlock_Affliction_Hellcaller_ST"] = {
             },
             PreMacro = [[
                 local shards = UnitPower("player", Enum.PowerType.SoulShards)
-                local wither = C_UnitAuras.GetPlayerAuraBySpellID(386933) -- Verify spellID
-                local malevolenceCD = C_Spell.GetSpellCooldown(386933) -- Verify spellID
+                local wither = C_UnitAuras.GetPlayerAuraBySpellID(386931) -- Wither (Hellcaller)
+                local malevolenceCDInfo = C_Spell.GetSpellCooldown(386928) -- Malevolence
                 
-                GSEStore['MAVOLENCE_READY'] = malevolenceCD == 0
+                GSEStore['MALEVOLENCE_READY'] = malevolenceCDInfo and malevolenceCDInfo.startTime == 0
                 GSEStore['WITHER_STACKS'] = wither and wither.applications or 0
                 GSEStore['SHARDS'] = shards
             ]],
