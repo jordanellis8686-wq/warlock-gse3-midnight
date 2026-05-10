@@ -16,7 +16,7 @@ except ImportError:
     print("ERROR: cbor2 module required. Install with: pip install cbor2")
     exit(1)
 
-GSE_VERSION = 3315
+GSE_VERSION = 4000
 LAST_UPDATED = int(datetime(2026, 5, 10, 0, 35).timestamp())
 OMS = 150
 AUTHOR = "Cascade-WoW"
