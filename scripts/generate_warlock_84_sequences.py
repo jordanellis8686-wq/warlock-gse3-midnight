@@ -25,7 +25,7 @@ AUTHOR = "Cascade-WoW"
 def encode(name: bytes, seq: dict) -> str:
     """Encode GSE3 sequence in CBOR format with compression."""
     payload = cbor2.dumps([name, seq])
-    comp = zlib.compressobj(level=9, wbits=-15)
+    comp = zlib.compressobj(level=9, wbits=15)
     encoded = comp.compress(payload) + comp.flush()
     return "!GSE3!" + base64.b64encode(encoded).decode("ascii")
 
@@ -62,7 +62,7 @@ def build(
             b"Description": desc.encode(),
             b"Help": help_text.encode(),
             b"EnforceCompatability": True,
-            b"ManualIntervention": True,
+            b"ManualIntervention": False,
             b"OMS": oms,
         },
     }
