@@ -117,14 +117,14 @@ Sequences["Warlock_Cooldown_Sync"] = {
                 local darkglareCDInfo = C_Spell.GetSpellCooldown(205180)
                 local darkglareCD = darkglareCDInfo and darkglareCDInfo.startTime
                 local darkHarvestCDInfo = C_Spell.GetSpellCooldown(386933)
-                local darkHarvestCD = darkHarvestCDInfo and darkHarvestCDInfo.startTime == 0
+                local darkHarvestCD = darkHarvestCDInfo and darkHarvestCDInfo.startTime
                 local soulburnCDInfo = C_Spell.GetSpellCooldown(74434)
                 local soulburnCD = soulburnCDInfo and soulburnCDInfo.startTime
                 local timeToKill = UnitHealth("target") / (UnitDamage("player") or 1)
                 
                 -- Calculate optimal cooldown usage
-                local darkglareReady = darkglareCD and darkglareCD.startTime == 0
-                local darkHarvestReady = darkHarvestCD and darkHarvestCD.startTime == 0
+                local darkglareReady = darkglareCD == 0
+                local darkHarvestReady = darkHarvestCD == 0
                 local syncCooldowns = darkglareReady and darkHarvestReady
                 local useNow = syncCooldowns or timeToKill < 20
                 

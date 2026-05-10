@@ -178,6 +178,7 @@ def dst_hcl_st_actions():
         priority_loop(
             act("/cast [known:Summon Infernal] Summon Infernal"),
             act("/cast [known:Avatar of Destruction] Avatar of Destruction"),
+            act("/cast [known:Soul Fire] Soul Fire"),
             act("/cast Chaos Bolt"),
             act("/cast Conflagrate"),
             act("/cast Immolate"),
@@ -194,6 +195,7 @@ def dst_dia_clv_actions():
         priority_loop(
             act("/cast [known:Summon Infernal] Summon Infernal"),
             act("/cast [known:Havoc] Havoc"),
+            act("/cast [known:Soul Fire] Soul Fire"),
             act("/cast Chaos Bolt"),
             act("/cast [known:Rain of Fire] Rain of Fire"),
             act("/cast Conflagrate"),
@@ -260,7 +262,7 @@ sequences = {
         dst_hcl_st_actions(),
         warlock_variables(),
         "Destruction Hellcaller ST. [known:] guards for L84-90",
-        "Main ST key. Chaos Bolt > Conflagrate > Immolate > Incinerate",
+        "Main ST key. Soul Fire > Chaos Bolt > Conflagrate > Immolate > Incinerate",
     ),
     "WL_DST_DIA_CLV": build(
         b"WL_DST_DIA_CLV",
