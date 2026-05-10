@@ -270,7 +270,7 @@ sequences = {
         dst_dia_clv_actions(),
         warlock_variables(),
         "Destruction Diabolist Cleave. [known:] guards for L84-90",
-        "Cleave key. Havoc management for 2-3 targets",
+        "Cleave key. Chaos Bolt > Havoc > Soul Fire > Shadowburn for 2-7 targets (no Rain of Fire)",
     ),
 }
 
