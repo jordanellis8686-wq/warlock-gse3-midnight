@@ -38,7 +38,7 @@ Sequences["Warlock_Affliction_Leveling_Optimized"] = {
                 local heroSpec = GSEStore['AFF_HERO_SPEC'] or 0
                 local combat = UnitAffectingCombat("player")
                 
-                -- Pandemic thresholds (30% of duration)
+                -- Pandemic thresholds (30% of duration: Agony 18s=5.4s, Corruption 14s=4.2s, UA 21s=6.3s)
                 local agonyPandemic = agony and (agony.expirationTime - GetTime()) < 5.4
                 local corruptionPandemic = corruption and (corruption.expirationTime - GetTime()) < 4.2
                 local uaPandemic = ua and (ua.expirationTime - GetTime()) < 6.3
@@ -120,10 +120,10 @@ Sequences["Warlock_Affliction_Hellcaller_ST"] = {
             },
             PreMacro = [[
                 local shards = UnitPower("player", Enum.PowerType.SoulShards)
-                local wither = C_UnitAuras.GetPlayerAuraBySpellID(386933) -- Verify spellID
-                local malevolenceCD = C_Spell.GetSpellCooldown(386933) -- Verify spellID
+                local wither = C_UnitAuras.GetPlayerAuraBySpellID(386931) -- Wither (Hellcaller)
+                local malevolenceCD = C_Spell.GetSpellCooldown(386928) -- Malevolence
                 
-                GSEStore['MALEVOLENCE_READY'] = malevolenceCD == 0
+                GSEStore['MALEVOLENCE_READY'] = malevolenceCD and malevolenceCD.startTime == 0
                 GSEStore['WITHER_STACKS'] = wither and wither.applications or 0
                 GSEStore['SHARDS'] = shards
             ]],

@@ -6,9 +6,15 @@ Uses CORRECT GSE3 CBOR format matching working Vengeance generator
 """
 
 import base64
+import os
 import zlib
-import cbor2
 from datetime import datetime
+
+try:
+    import cbor2
+except ImportError:
+    print("ERROR: cbor2 module required. Install with: pip install cbor2")
+    exit(1)
 
 GSE_VERSION = 3315
 LAST_UPDATED = int(datetime(2026, 5, 10, 0, 35).timestamp())
@@ -17,9 +23,11 @@ AUTHOR = "Cascade-WoW"
 
 
 def encode(name: bytes, seq: dict) -> str:
+    """Encode GSE3 sequence in CBOR format with compression."""
     payload = cbor2.dumps([name, seq])
     comp = zlib.compressobj(level=9, wbits=-15)
-    return "!GSE3!" + base64.b64encode(comp.compress(payload) + comp.flush()).decode("ascii")
+    encoded = comp.compress(payload) + comp.flush()
+    return "!GSE3!" + base64.b64encode(encoded).decode("ascii")
 
 
 def act(macro: str) -> dict:
@@ -27,13 +35,16 @@ def act(macro: str) -> dict:
 
 
 def priority_loop(*actions: dict, repeat: int = 1) -> dict:
+    """Create a priority loop block for GSE3 sequences."""
     block = {b"Type": b"Loop", b"StepFunction": b"Priority", b"Repeat": repeat}
     for index, action in enumerate(actions, 1):
-        block[index] = action
+        block[str(index).encode()] = action
     return block
 
 
-def build(name, spec_id, actions, vars_dict, desc, help_text, talents="", oms=OMS) -> dict:
+def build(
+    name, spec_id, actions, vars_dict, desc, help_text, talents="", oms=OMS
+) -> dict:
     return {
         b"LastUpdated": LAST_UPDATED,
         b"WeakAuras": [],
@@ -74,6 +85,7 @@ def warlock_variables() -> dict:
 
 # ── AFFLICTION SOUL HARVESTER ──
 
+
 def aff_ssh_st_actions():
     return [
         priority_loop(
@@ -107,6 +119,7 @@ def aff_ssh_aoe_actions():
 
 # ── AFFLICTION HELLCALLER ──
 
+
 def aff_hcl_st_actions():
     return [
         priority_loop(
@@ -125,6 +138,7 @@ def aff_hcl_st_actions():
 
 # ── DEMONOLOGY SOUL HARVESTER ──
 
+
 def demo_ssh_st_actions():
     return [
         priority_loop(
@@ -140,6 +154,7 @@ def demo_ssh_st_actions():
 
 
 # ── DEMONOLOGY DIABOLIST ──
+
 
 def demo_dia_aoe_actions():
     return [
@@ -157,6 +172,7 @@ def demo_dia_aoe_actions():
 
 # ── DESTRUCTION HELLCALLER ──
 
+
 def dst_hcl_st_actions():
     return [
         priority_loop(
@@ -171,6 +187,7 @@ def dst_hcl_st_actions():
 
 
 # ── DESTRUCTION DIABOLIST ──
+
 
 def dst_dia_clv_actions():
     return [
@@ -198,91 +215,101 @@ SPEC_IDS = {
 
 sequences = {
     "WL_AFF_SSH_ST": build(
-        b"WL_AFF_SSH_ST", SPEC_IDS["WL_AFF_SSH_ST"],
-        aff_ssh_st_actions(), warlock_variables(),
+        b"WL_AFF_SSH_ST",
+        SPEC_IDS["WL_AFF_SSH_ST"],
+        aff_ssh_st_actions(),
+        warlock_variables(),
         "Affliction Soul Harvester ST. [known:] guards for L84-90",
-        "Main ST key. Dark Harvest > Darkglare > Haunt > UA > Agony > Corruption",
+        "Main ST: Dark Harvest > Darkglare > Haunt > UA > Agony > Corruption",
     ),
     "WL_AFF_SSH_AOE": build(
-        b"WL_AFF_SSH_AOE", SPEC_IDS["WL_AFF_SSH_AOE"],
-        aff_ssh_aoe_actions(), warlock_variables(),
+        b"WL_AFF_SSH_AOE",
+        SPEC_IDS["WL_AFF_SSH_AOE"],
+        aff_ssh_aoe_actions(),
+        warlock_variables(),
         "Affliction Soul Harvester AOE. [known:] guards for L84-90",
         "AOE key. Seed of Corruption focus with Dark Harvest",
     ),
     "WL_AFF_HCL_ST": build(
-        b"WL_AFF_HCL_ST", SPEC_IDS["WL_AFF_HCL_ST"],
-        aff_hcl_st_actions(), warlock_variables(),
+        b"WL_AFF_HCL_ST",
+        SPEC_IDS["WL_AFF_HCL_ST"],
+        aff_hcl_st_actions(),
+        warlock_variables(),
         "Affliction Hellcaller ST. [known:] guards for L84-90",
         "Main ST key. Malevolence + Darkglare burst windows",
     ),
     "WL_DEMO_SSH_ST": build(
-        b"WL_DEMO_SSH_ST", SPEC_IDS["WL_DEMO_SSH_ST"],
-        demo_ssh_st_actions(), warlock_variables(),
+        b"WL_DEMO_SSH_ST",
+        SPEC_IDS["WL_DEMO_SSH_ST"],
+        demo_ssh_st_actions(),
+        warlock_variables(),
         "Demonology Soul Harvester ST. [known:] guards for L84-90",
         "Main ST key. Tyrant > Dreadstalkers > Hand > Demonbolt",
     ),
     "WL_DEMO_DIA_AOE": build(
-        b"WL_DEMO_DIA_AOE", SPEC_IDS["WL_DEMO_DIA_AOE"],
-        demo_dia_aoe_actions(), warlock_variables(),
+        b"WL_DEMO_DIA_AOE",
+        SPEC_IDS["WL_DEMO_DIA_AOE"],
+        demo_dia_aoe_actions(),
+        warlock_variables(),
         "Demonology Diabolist AOE. [known:] guards for L84-90",
         "AOE key. Pit Lord + Tyrant + demon swarms",
     ),
     "WL_DST_HCL_ST": build(
-        b"WL_DST_HCL_ST", SPEC_IDS["WL_DST_HCL_ST"],
-        dst_hcl_st_actions(), warlock_variables(),
+        b"WL_DST_HCL_ST",
+        SPEC_IDS["WL_DST_HCL_ST"],
+        dst_hcl_st_actions(),
+        warlock_variables(),
         "Destruction Hellcaller ST. [known:] guards for L84-90",
         "Main ST key. Chaos Bolt > Conflagrate > Immolate > Incinerate",
     ),
     "WL_DST_DIA_CLV": build(
-        b"WL_DST_DIA_CLV", SPEC_IDS["WL_DST_DIA_CLV"],
-        dst_dia_clv_actions(), warlock_variables(),
+        b"WL_DST_DIA_CLV",
+        SPEC_IDS["WL_DST_DIA_CLV"],
+        dst_dia_clv_actions(),
+        warlock_variables(),
         "Destruction Diabolist Cleave. [known:] guards for L84-90",
         "Cleave key. Havoc management for 2-3 targets",
     ),
 }
 
 # Write output
-output_file = (
-    "c:\\Program Files (x86)\\World of Warcraft\\_retail_\\WTF\\"
-    "WoW-GSE-Development\\WOW-MIDNIGHT-GSE-BUSSYBLASTR-BARGAIN-BIN\\"
-    "classes\\Warlock\\gse\\WARLOCK_84_90_Midnight.txt"
-)
+base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+output_file = os.path.join(base_dir, "gse", "WARLOCK_84_90_Midnight.txt")
 
 with open(output_file, "w") as f:
     f.write("# Warlock GSE3 Sequences — Level 84-90 Compatible\n")
     f.write(f"# Generated: {datetime.utcnow().isoformat()} UTC\n")
     f.write(f"# Patch: Midnight 12.0.5 | Interface 120005 | GSE {GSE_VERSION}\n")
     f.write(f"# OMS: {OMS}ms | Level: 84-90 compatible\n")
-    f.write("# CORRECT GSE3 CBOR FORMAT — matching working Vengeance generator\n\n")
+    f.write("# CORRECT GSE3 CBOR FORMAT — matching Vengeance generator\n\n")
     for name, seq in sequences.items():
         f.write(f"{name}\n")
         f.write(f"{encode(name.encode(), seq)}\n\n")
 
 # Write loaded.lua
-loaded_path = (
-    "c:\\Program Files (x86)\\World of Warcraft\\_retail_\\"
-    "Interface\\AddOns\\GSE3-Warlock-Midnight\\loaded.lua"
+loaded_path = os.path.join(
+    base_dir, "gse", "plugin", "GSE3-Warlock-Midnight", "loaded.lua"
 )
 
-lua = 'local ModName, Sequences = ...\n'
+lua = "local ModName, Sequences = ...\n"
 lua += 'local GSE = rawget(_G, "GSE") or rawget(_G, "GSE3")\n'
 lua += 'if GSE == nil then print("GSE3-Warlock-Midnight requires GSE.") return end\n\n'
-lua += '-- Level 84-90 Compatible Warlock Sequences\n'
-lua += '-- CORRECT GSE3 CBOR FORMAT — all spells use [known:] guards\n\n'
+lua += "-- Level 84-90 Compatible Warlock Sequences\n"
+lua += "-- CORRECT GSE3 CBOR FORMAT — spells use [known:] guards\n\n"
 
 for name, seq in sequences.items():
     lua += f'Sequences["{name}"] = [[{encode(name.encode(), seq)}]]\n'
 
-lua += '\nGSE.RegisterAddon(\n'
-lua += '  ModName,\n'
+lua += "\nGSE.RegisterAddon(\n"
+lua += "  ModName,\n"
 lua += '  C_AddOns.GetAddOnMetadata(ModName, "Version"),\n'
-lua += '  GSE.GetSequenceNamesFromLibrary(Sequences),\n'
-lua += '  Sequences\n'
-lua += ')\n'
+lua += "  GSE.GetSequenceNamesFromLibrary(Sequences),\n"
+lua += "  Sequences\n"
+lua += ")\n"
 
 with open(loaded_path, "w") as f:
     f.write(lua)
 
 print(f"Generated {len(sequences)} Warlock sequences (CORRECT CBOR FORMAT)")
 print(f"Output: {output_file}")
-print(f"Addon: {loaded_path}")
+print(f"Addon: {loaded_path}\n")

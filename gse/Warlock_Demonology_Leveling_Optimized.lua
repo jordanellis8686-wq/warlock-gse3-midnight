@@ -41,7 +41,7 @@ Sequences["Warlock_Demonology_Leveling_Optimized"] = {
                 local hasPet = UnitExists("pet")
                 local empowerment = C_UnitAuras.GetPlayerAuraBySpellID(267171) -- Demonic Empowerment
                 
-                -- Cooldown checks
+                -- Cooldown checks with proper nil handling
                 local tyrantCD = C_Spell.GetSpellCooldown(265187)
                 local grimoireCD = C_Spell.GetSpellCooldown(111898)
                 local handsCD = C_Spell.GetSpellCooldown(105174)
@@ -50,9 +50,9 @@ Sequences["Warlock_Demonology_Leveling_Optimized"] = {
                 GSEStore['HERO_SPEC'] = heroSpec
                 GSEStore['HAS_PET'] = hasPet
                 GSEStore['EMPOWERMENT'] = empowerment and empowerment.applications or 0
-                GSEStore['TYRANT_READY'] = tyrantCD == 0
-                GSEStore['GRIMOIRE_READY'] = grimoireCD == 0
-                GSEStore['HANDS_READY'] = handsCD == 0
+                GSEStore['TYRANT_READY'] = tyrantCD and tyrantCD.startTime == 0
+                GSEStore['GRIMOIRE_READY'] = grimoireCD and grimoireCD.startTime == 0
+                GSEStore['HANDS_READY'] = handsCD and handsCD.startTime == 0
                 GSEStore['IN_COMBAT'] = combat
             ]],
             "/cast [nochanneling] Call Dreadstalkers",
@@ -129,10 +129,10 @@ Sequences["Warlock_Demonology_Diabolist_ST"] = {
             },
             PreMacro = [[
                 local shards = UnitPower("player", Enum.PowerType.SoulShards)
-                local guillotineCD = C_Spell.GetSpellCooldown(386933) -- Verify spellID
+                local guillotineCD = C_Spell.GetSpellCooldown(386932) -- Guillotine (Diabolist)
                 
                 GSEStore['SHARDS'] = shards
-                GSEStore['GUILLOTINE_READY'] = guillotineCD == 0
+                GSEStore['GUILLOTINE_READY'] = guillotineCD and guillotineCD.startTime == 0
                 GSEStore['SHARDS_FOR_HANDS'] = shards >= 3
             ]],
             "/cast [nochanneling] Call Dreadstalkers",
