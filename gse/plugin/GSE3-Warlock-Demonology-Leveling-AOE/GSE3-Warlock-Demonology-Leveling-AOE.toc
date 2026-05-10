@@ -1,0 +1,4 @@
+## Interface: 110005
+## Title: GSE3-Warlock-Demonology-Leveling-AOE
+## Author: BussyBlast GSE3
+## Version: 1.0

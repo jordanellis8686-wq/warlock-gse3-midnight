@@ -1,0 +1,110 @@
+# Affliction Warlock GSE3 Import Strings - Midnight 12.0.5
+# Generated 2026-05-08 | Patch Midnight 12.0.5 | Interface 120005 | GSE 3315
+# Cross-validated source stack: Blizzard, Wowhead, Method, Icy Veins, Murlok, Archon, Warcraft Logs, SimulationCraft, class-community sources.
+# 
+# IMPORT INSTRUCTIONS:
+# 1. Open GSE3 in WoW (/gse)
+# 2. Click "Import"
+# 3. Paste the sequence name (e.g., Warlock_Affliction_SoulHarvester_ST_Official)
+# 4. Paste the corresponding !GSE3! string
+# 5. Click "Import"
+# 
+# SEQUENCE DESCRIPTIONS:
+# - Soul Harvester ST: Single target damage with Dark Harvest burst windows
+# - Soul Harvester AoE: Mythic+ focused with Seed of Corruption spam
+# - Hellcaller ST: Single target with Wither + Malevolence windows
+# - Hellcaller AoE: Superior AoE with Wither stack management
+# - Soul Harvester PvP: Arena pressure with curse management
+# - Hellcaller PvP: Arena pressure with Malevolence burst
+
+================================================================================
+# SOUL HARVESTER - SINGLE TARGET
+# Focus: Dark Harvest enhancement, burst windows every 1 minute
+# Core: Maintain DoTs, spend shards aggressively, sync Dark Harvest with Darkglare
+Warlock_Affliction_SoulHarvester_ST_Official
+!GSE3!rVVNbyNFECXABYkfwC4HmgsrkGNvkuWSE52Z2OONZxM83tgxWkWdmbKncX8M3T32esQhIPEXOKPsLpz4dWi5gagZe5OA7IQIfBi3uqvq1at6Xf39YLPPjNDx5JSORoLHjmt1GulcBMxMwTowp1Hv9DBzXPICklcHHWbd0yxhDpL7/M/5W+0+sAnNDbPnwTEYi/72u4sWrSLZH372e/MM/I7WWSdykDVzVZ0ER4Zrw9282YUMmNvYeLEvWWz04ONGjBDkqy8cM2NwtZQZWVM6AZY8I3Ss1bwK2Vwg+A7XC8+330T45KYInjYmzyrX1WHe+VeJBCxXbk2EX+7M+aMlVKzlGXPPSJRLqRXxmZmMBTNwG+MP/+FfOpJlB2+hedTILVx5bu2ssX93jf2jNfav7lyExk31fqqsY2cCyJVMbyvKpzfFC5mAEY9JC4Wb/W8UdpaQSscpUwoEV+PaSnzfMK5IedFuo/HgJhpRyhI9I3tarOvzyzuT+I+AR211lnPhjpnhZcfsT+3L5UVwAPMjA9a+pFuD+40FAiiQ87JoFVKFQ7cH9WUaUie7TLjVZYwyEIJ0cH7RncHDax6xM2K1S6iNYwLnABf00eCzaz425SPEyQSbgyklByrBBpIuWC2m8Bhz74IAZuGCbnUaKEiM5BxD8O3Lqi0uxvooQQiO+cyxX5s0d6k2B57OuNBus6/7TeQTt/17G+/5T5iEOw7nVg9FrZwdxN7kS7ryNwuLsNDDr/eKUIo9Sk/k8Pk8LOxJi55Y+2RG5Xh40pnNtitb/Mhhq0Aj3y9Kz9CXQzmktKB+4KUQT2wuf+/4KCCVgIo52BdXzT5vhqUe7Hk7gm9yPMatlg8jlgu38bgV7S+fi3vv/3bgg40Nr8by4NuQJ4qPU0e2tusP658T/YYgWZbj2hAgfysHiXrkshx1EoDRu5UFuTSpk8MRXnyOEsAUdsoBkOBUIdgunbu6H4DIBn94mLfdnDLBq5eOWJ2bGIgtm71L9gQvCmaSGunrWYqqqhHsaqrxvx3PyTFwZXErx2QnNUJNnGpVK5OPDRs5lOsYjyMuc8FKDl65WyOxYIiJ+pG5wnu5xLR1Qjs9whXmXj5cDXiOK8VEjXi9bofkjgu0xnhBu9kjCYxAWT6FOo44lSNLHDQJ8XxLDMhy5iyESWKtnNFCIDmkgNva8jIZJuq9fTXSCO1pmaFQzyqA191FvHaZyBRlhravvcMw+uDHvwA=
+
+================================================================================
+# SOUL HARVESTER - AOE/MYTHIC+
+# Focus: Seed of Corruption AoE with shard generation
+# Core: Seed spam, maintain Agonies for shards, Dark Harvest on CD
+Warlock_Affliction_SoulHarvester_AOE_Official
+!GSE3!rVVRbxtFECbACxI/gJYHlick5J4bp7zkictd7HPjS0LsxnZQFY3v5nxb7+0eu3tObKlSisRf4BmlrXji16HyBmLubJyA4oRItWR5tTsz38w334x/HDh90EJFk1M3SQSPLFfytKsKEYCeorGoT92D3dOD3PKMzzF+u9cBY5/lMViMH/K/Zh+0+wgTt9BgLoJj1IYCmFeXLbcKZX566/dmOfodpfJO12LeLGT1EhxqrjS3s+YR5gh2Y+P1bgaRVoMv6xFBsO+/taDHaGsp6KwmVYwQP2fuWMlZFbK5QPAtnReeH/6vCAEU0q6J8Ou9k/1iCRWpbAT2OesWWaYk80FPxgI03pXq5//xLx3Zkvs1vh8tfQ/rhcErz82tNfYfr7F/ssb+/h1zbuO7ixgzlTBPaV3kFdYdnNRvC/dMGgsjgexKr++tjq0lsFRRClKi4HJcuzELXwOXrJyTu4p5P9y8uXctX92Km0KsztiOEutEdtiWo4ILewyal3SbX9qr42Wwh7NDjca8cTcHD+sLBJSYzUruKqQKx22sys9UvA3C3sxmN0chWIe2kLs1eHzNI7Ja3OwSKm1BEHFcuE8GX1/zMSlPCCcXMENd6gVlTH1kR2iUmOJTyv0IBYLBS3ezUyc1USRrgcAbK9YWQ7I+ShCiBR8s/NZ0C5sqveepnAtlH/VVv0n1RG3/wcYn/j5keN8V2+qBQGnNAL3Jd+6Nn7PwxUlrf5SdZyet+YwuspNMnMzDeWPojs8bDdcfellqXX/k02OLvnPyCOdmfz5shWQ3HJLHjhv6oRt4KUYTU2R/dHzSkIxRRhzN66t+XzTDUhLmot3FHwp6pquWjwkUwm48bXV3l2v/wae/7/loIs0rKQ9ehjyWfJxattlwHjvfMPVPiWzJyLUhZv9ihBEjbMWIwwLUarsyYSsbhx0kCY84yYBy2GItDTGtBUYtU4V1/ABFPvjTo8TNoykIXv1lMaMKHSEzZcO32Y7g8znouMb66iwlZdUYdTZV9NuOZuwYuTR0VVC2kxpzdZQqWSuzjzQkliQ7pucuzwoBZRFeeVtjkQDCJA1lhaTZXGIah7mdHuOSci+nvY7ndJIgaszrHXVYYbkga4oXtJs9FmOC0vApOiwEWVCVtHNi5vmGaczK9bMQJ4uUtFoJQcVRCXStDC+TAeH0dmWiCNpTWU5iHVUA744W8dplIlNSGtm+8w7C7mc//w0=
+
+================================================================================
+# HELLCALLER - SINGLE TARGET
+# Focus: Wither enhancement, Malevolence windows
+# Core: Maintain DoTs, save shards for Malevolence, Wither stack management
+Warlock_Affliction_Hellcaller_ST_Official
+!GSE3!rVVLcxtFEMY8DlTxA0g4MORCkVKk2A4XnxhprZViLTZaxRKiUq7xbEs70TyWeciRToYq/gJnykkoLvw6Ktyg6JUU25WybFywe9ipme7++uv+pvfHwf0+s9LwyREdjaTgXhh91AIpOZMS7FHaO9ovvFBiDtmrvQ5z/kmRMQ/ZXfH37J12H9iEBsvcaesQrENn98NZTBdh3E+/Rr1ZAVHHmKKTeiiaQS9OWgdWGCv8rNmFApjf2Hixqxi3ZvBZjSME+e4rz+wYfCVnVlW0yYBlTwkdGz1bhGwuESKP66Xnu28i3LsuQl/4HOyaEO/9qyRaLGi/JsJvt+b76QqKG3XM/FOSBqWMJhGzk7FkFm5ie/ct/4RJmBoJmsNNLD95y7XERHZ2Cm4dv/dXvge14ODCc3N7jf0Ha+wfrbF/dev61a5r1RPtPDuWQC6kfVM9v7guXlnckeAkRr0X/xuF7RWkNjxnWoMUely5Ej+yTGiSmiBvovH5dTTSnGXmhNSNXNfnl7cm8R8BD9r6OAjpD5kVZcfcL+3z5VlrD2YHFpx7STdR8EsE0KBmZdEWSAscujWortJQJtth0l9dxrTA8UY6OPPo9uDhJQ/urbzaJTHWM0kaRkj6aHD/ko/LxQhxCslmYEvJgc6wgaQLzsgpPMbcuyCBOTijm50aChIjec8QfOu8asuLsT5KKwHPIubZ700afG7sXsMUQhr/oG/6TeTD29GdjQ+jr5mC2wz0uIeK1t4NeGPyDb3yOUnmydwMn9XniZJ1Sr9Vw2FfDZV8Tml/XFfNZ/Gczhztx2iclPaRGsbzJInRCN+49KdU1eNWIwc+cUH92YlQPTrDISXAvbjo9GkzKcXgTtspfB/KGeZO4whGLEi/8ThOd1e/mDsf/bEXgeNWFCW7QUhEpsU492Rzq/qw+iUxbwiSVS0uTQByUQuS9sh5Lap4YM3OpeMq2R/hdRfYeMTeLq99hrOEYJNM8NUILYvBXw1M2D2YMikWv0XiTLAciCtbvEPqUsznzGYV0jcnOWqpQrCXucFvm8/IIQjtcCtglpMKoZbnRlfKrLllI48iHeNxKlSQrEy+Ue5WCJcMMVE1Kmi8jStMVyW00yNCe7A2FL4Gz3GlmayQRq/bIcELidYYr9Vu9kgGI9BOTKGKg00HZInjJSONyBELqpw0SzkSbrS3BiuSEaSA28aJMhkmq71dPTII3TCqQHkeLwBed5fx2mUiU9QX2r5u7Cfpxz//Aw==
+
+================================================================================
+# HELLCALLER - AOE/MYTHIC+
+# Focus: Superior AoE with Wither stacks and Malevolence
+# Core: Seed + Malevolence combo, maintain Wither stacks
+Warlock_Affliction_Hellcaller_AOE_Official
+!GSE3!rVVdb+NEFKV8PCDxA9jlgYEXJMgm/ViE1CemduKktbclyTYfaFVN7Ot4yHjGzIzTxk8Fib/AM+ruIl74dWh5A3HtZNtq1bRU2uQhE8+999xz5sz1z8OvBkwLFc5OaBwLHlqu5EkbhAiZEKBP6GHz5DCzPOUFRC8PfGbs0yxiFqKH/N/FO50BsBnNNTPn7WPQBrPNTxcereqYX353+4sMXF+pzO9ZyFq5rHbaR5orze2i1YUMmN3YeN5MWajV8LNGiBDk+28t01OwtYTptCZVBCx6RuhUyUVVsrVEcC2ul5nvvq7w+W0VBtwmoNeUeO9/NdFmubRrKvxxb76frqBClU6YfUZ6eZoqSVymZ1PBNNzF9uEb+QETMFcCZAh3sfzkjdQSE9npOZh1/N5f5R41cgNXmVs7a+I/WBP/eE38y3vrV7/tqHoAEVExcZTWeVZh3SFn47ZyT6WxbCKAXF2Vt8ZjZwUsVZgwKUFwOa3d2IWrGZekp3JxF5m3o82Le3P54lbchEXqlOwpsc5kRx05ybmwx0zzUm7zW+dyedE+gMWRBmNe0C00/xIBJKSLUrsKqcKh25f0UxXtMmFvVrOX4awjPg5AujPcvJYRWi1uTgmUtkygcFzQx8Mvr+WYhMeIkwm2AF36BWSE50i6YJSYwz723gUBzMAF3fIb6CasZC1D8O1L1ZaXZH2VdgCWucyyP1s0t4nSB47KuFD20UANWsgn7LgPNj50n7AU7jXdvT7ODmnNUDiz7+hi84ezjqvi2el+qtrfDJJ5s6fGaTL2nkzSs+2gGA08Sk+DwgSTIigWIzod4ycI0laxOUrHI7/wXN+llGIY/i+/o9SOvWKKK8/FHEqD6V7bSSCcmTz923fRRzLC0cXBPL868/NWUNrCnHd68GNeTjZz7rkQs1zYjX2v11y9eB589NeBCybUvLLzcB7wSPJpYsnWdn2z/jVRr5mSlSrXLjK5UoWgKuRSlTruaLV7bb9ODuOYhxw9gOA7xNMswplA8LxUbusuRmbDfxzs2DyaM8GrtyUxKtchEFOe9i7ZE7womI5qZKBOE7RVjeCxJgp/O+GCHAOXBh/l2OasRqgOEyVrZduhZrFFv05xu8fTXLCye6d8WiOhYIiJBkpziRdzhWnqhPp9wqWF6qo34AxXkokacfpdn+SWC4zGeu1Oq08iiEEaPoc6vkxkjixx4ETEcQ3RkJazZ+lMEipptUJFIoIU8LEyvGyGiXq/KWOF0I5KM3TqpAJ41V3W65SNzNFpGPvKOQx6H//6Hw==
+
+================================================================================
+# SOUL HARVESTER - PVP
+# Focus: Arena pressure with burst windows, curse management
+# Core: Maintain DoTs on all targets, curse usage, Darkglare burst
+Warlock_Affliction_SoulHarvester_PvP_Official
+!GSE3!zVbLbiNFFCU8Fkh8ADMIKDYgIceZJIOEsqLTHT8m7kmIPYljNIpuqq/dhaurmnrYsSWkgMQvsEYZRrDh69CwA3G77WTCKM5DsMALu1RV95xz65665e+71QMwUvPhUdDvS8Gd0Oqorb1sgBmhdWiOdke7Rzu5E5mYYvJ8uwXWPckTcJjcF39NXmseIAwDb8CeNvbRWAKw353VgxLK/vBr1JnkGLW0zltth3nNq3KlsWuENsJNanuYI7ilpWdbGXCjux+tcKJgX33hwAzQVVIwWUXpBCF5yoKBVpMSsjZjiByNZ5GvnyN8fB1CqI3xeRl6NcwbtxLSAK/cAoQ3zxEezhEynWyAdJWrBXljkek+62g18GgXgL51Dvr5JVDujLwBdeskBW+vyfeXO1fow7kCrrNjcE9Z22eZViwCMxxIMHhTfd57Jb4IZHPD3VSUD16NRaIWnNXJkGOY3FSR9xeEh8JwuUj48zuf0Mp11nmirINjiezllbvpxD65Dq+dQqLHbFNL958lsD4nVJqnoBRKoQZXGy0yIBQrWsb/Lol/SXghfPnafnJ+0Yo+qNAuur+7TXXshXT7YERRfftT82J41tjGya6h4J+D1e79lRkPKswmRQlKvpItWOtWb9NT2jlKyVrU14P17oNbNYxYGweS2qOQwcPup5dibCr6xJNLmKAp7IsqITuwPbRajvARad9DiWDxLFhtrZC5Cck5IPK1ixrMLtxilEaMDiJw8Fst8C7VZjvUuZDaLR/ogxrlw5vRvaW3o8eQ4V0frXoHJCpnuzwcfhlc+RnH03iqe19vTuNMbgbBYdY7mcRTe1gPDq19PA6yQe+wNR6vlXvpK+vVp7QpiqZFZBxlvawXBNMgaoQp8qH12R+tiPyoElRcoH32stqntbgwhD1ttvEbT8s0VY+wD166pUf19tb8Gb33zu/bEVpuRPlcdb+NRaLEIHVsda36oPoZ0+cJsvl5XOoo7B/nweg82MV5VFkDjd4ot7CLPVW20+8LLsgEpGGd1Q0k1KMYFUx7V40aKPPunyEJt8sjkKL8C8Cs9oYjs0W5N9imFNMpmKTCDvQ4JV9VGNU11fTb5BO2j0JZmvKkdlhhgeGpVpVCPTfQd2TYAS23ReYlFEmExWyFcQnESQ7KvKJ7Pue0VRa0Okwo0l686Ct4QiMFssLCzl6LeSck7Sa8RrPWYQn2UVkxwiqLQXnKkhpXwsLIMoNZ0cNm1mRcK2e0lJQcpUDT2opCDMhqZ0v1NVGHOsvJqsclwYu9GV6zEDIin9HeF+FO3H73x78B
+
+================================================================================
+# HELLCALLER - PVP
+# Focus: Arena pressure with Wither, Malevolence burst
+# Core: Maintain DoTs/Wither, curse usage, Malevolence + Darkglare combo
+Warlock_Affliction_Hellcaller_PvP_Official
+!GSE3!zVZNbyNFECV8HJD4AewioOGCBI6zSRZplRPtmXjsjYcY2xuboFXU6Sl7et0fQ3ePE/sUkPgLnFGWlbjw69ByA1FjO04UxXEiOGAfPJrueq+q3utq/9j7osusNHx4RPt9KbgXRh/VQErOpAR71Bw1j/YzL5SYQPJqr8Gcf5YlzEPyUPw9fqPeBTakuWXurHYA1mG0++E8olMc99NvYWecQdgwJmu0PWTVXE9Xak0rjBV+XG1BBsyvrb3cVYxb0/tkgyMF+e4rz+wAfCllVpW0SYAlzwkdGD2eQlZnDKHH51nkmxcIn96G0BU+BbsE4q07JVFjufZLEN6+QHg8R1Am2WHSl25ECnLrgJg+6Rg9yMEtAX3nAvTJFVDurVyBunuastxNwW4Gvr86H88z4EYdM/+ctHOljCYhs8OBZBZWafPwWnzMJIyMBM1hlSYfXAstOFELOwK3Uo2PrscCZi04idDHJ2y8qu8fLgkPhOVyWeKv7t3cjdtc90w7z44lkMtjuqrZn92G105ZYk5IxUj/nxWwPSfUhqdMa5BCD272aGiZ0KRtcvm/K+JfEi4SX78NZ3FGi/GpwS07+s26Ps6F9AfMikJ990t98Xhe24Nx02Lwr3QTT9aMBzSocSHBlG/KRrd65buMo3aGY5808C6g271Hd5o1sbGeSRIYIenj3udXYlwq+siTSTYGW9gXdIJ2IC1wRo7gKebeAgnMwTndbGyguRHJe4bkWwsNZgduOUotBs9C5tnvVZr71Ni9wGRCGr/eNd0q1sPr4YO1d8OvmYJ7XXRRBweT9q7Hg+E39MbPSTyJJ+bwRWUSK1mh9Ft1eNhVh0qeUtodVFT1RTShY0e7EW6Oi/2hOowmcRzhJvxGRTylqhLVghT40OXqz0aIZtQJjkMB7uWl1GfVuHCDO6u34fu8mJbuLAqhz3Lp155G7d351fvgvT/2QnDciqworzeKRaLFIPVkc6v8qPwlMRcFknkzrowTctkMgs0gi2aUccWanSvrZbLf7wsuUHok3yaRZQlOJoIymdyXQ9yZ9f4KMGO3PmJSTP8vEGdyy4G4QuQdUpFiMmE2KZGuOUnRTSWCaqYGf+t8TA5AaIevckxzWCLU8tToUpE2t6zv0aYDXG4LlUtWZB8Ub0uES4ac6BuVazzdc05XJrTRIUJ7sDbP/Aac4pNmskSCTqtBci8k7ka8Wr3aIQn0QTsxgjJeUDrHKnFcJSQIHbGgisk1MyThRntrsCMJwRLwtXGiSIbJcmdX9w1SB0ZlaNDjKcHr1gyvXiQyQoPh3tfBftx+/+d/AA==
+
+================================================================================
+# TALENT IMPORT STRINGS (for reference)
+# Copy these strings in-game via the Talent UI import function
+
+# Soul Harvester ST/AoE/PvP
+CkQAAAAAAAAAAAAAAAAAAAAAAwMzMzoZjBzMmlBAAYmZxyMzsYGAYssNwAmgZYLww2AAAwMAAAmZGzYmZDDzMzMzMDmZmZAAzAD
+
+# Soul Harvester AoE (Seed focus)
+CkQAAAAAAAAAAAAAAAAAAAAAAwMjZGNbmxmZGzyAAAmZmlZzMz2YAgx22ADYCmhtADbDAAAGAAAzMjZMzsNzYGMzMzYYmZmBAMDMA
+
+# Hellcaller ST/AoE/PvP
+CkQAAAAAAAAAAAAAAAAAAAAAAwMzMzoZjBzMmlBAAYmZZWmZmlxAAWgBmFjGzAysAWGAAAMAAwMDmZGzMMGmZmZmZGMzMzAAmBG
+
+# Hellcaller AoE (alternate)
+CkQAy0jxIDofkwJmoH7WhvESoZmhZGNbmx2MzYWGAAwMzsMbzMzyYAgZZZZMMmFz0YmZYLzGDLDAAAGAAYmZmZmZYmtZGzgZmZGDzMzAAMgB
+
+================================================================================
+# KEY BINDINGS (GSE3 Variables)
+# Alt+Click: Spell Lock (interrupt)
+# Ctrl+Click: Mortal Coil (utility)  
+# Shift+Click: Unending Resolve (defensive)
+# Standard: Target enemy + start attack
+
+# PvP Modifiers:
+# Alt+Target: Curse of Tongues (casters/healers)
+# Ctrl+Target: Curse of Exhaustion (melee)
+
+================================================================================
+# ROTATION NOTES
+# - Dark Harvest: Cast on CD (Soul Harvester) or before Darkglare (Hellcaller)
+# - Agony: Never let fall off in PvP (maintains 18 stacks)
+# - Haunt: Keep on cooldown for Apex Talent procs
+# - Unstable Affliction: Main shard spender
+# - Seed of Corruption: AoE damage in Mythic+
+# - Malevolence: Hellcaller cooldown, use with Darkglare
+# - Summon Darkglare: Major burst, pool 3-5 shards first
+# - Drain Soul: Execute damage + shard generation
+# - Shadow Bolt: Filler, use Nightfall procs immediately
+
+================================================================================
+# STAT PRIORITIES
+# PvE ST: Crit > Haste = Mastery > Versatility
+# PvE AoE: Haste = Crit > Mastery > Versatility  
+# PvP: Intellect > Versatility > Haste > Crit > Mastery
+
+================================================================================
+# LAST UPDATED: 2026-05-08 Midnight 12.0.5
+# COMPATIBILITY: GSE3 v3315, WoW Interface 120005
+# AUTHOR: Copilot-WoW Research Agent
